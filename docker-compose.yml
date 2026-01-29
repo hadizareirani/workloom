@@ -1,1 +1,36 @@
 version: '3.8'
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: workloom-postgres
+    restart: unless-stopped
+    ports:
+      - '${POSTGRES_PORT:-5432}:5432'
+    env_file:
+      - .env.development
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - nestjs_network
+  app:
+    build: .
+    container_name: workloom-app
+    ports:
+      - '${APP_PORT:-3000}:3000'
+    depends_on:
+      - postgres
+    env_file:
+      - .env.development
+    networks:
+      - nestjs_network
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+volumes:
+  postgres_data:
+
+networks:
+  nestjs_network:
+    driver: bridge
