@@ -1,5 +1,7 @@
+import { ErrorCode } from '../errors';
+
 export interface IApiResponseErrorDto {
-  code: string;
+  code: ErrorCode;
   message: string;
 }
 
