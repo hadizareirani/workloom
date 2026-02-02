@@ -1,5 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { APP_INTERCEPTOR } from '@nestjs/core';
+import { MainAppInterceptor } from './shared';
 
 @Module({
   imports: [
@@ -10,6 +12,11 @@ import { ConfigModule } from '@nestjs/config';
     }),
   ],
   controllers: [],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: MainAppInterceptor,
+    },
+  ],
 })
 export class AppModule {}
