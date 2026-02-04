@@ -1,4 +1,6 @@
+import helmet from 'helmet';
 import { NestFactory } from '@nestjs/core';
+
 import { AppModule } from './app.module';
 import { GlobalExceptionFilter, MainAppInterceptor } from './shared';
 
@@ -7,6 +9,7 @@ async function bootstrap() {
 
   app.useGlobalFilters(new GlobalExceptionFilter());
   app.useGlobalInterceptors(new MainAppInterceptor());
+  app.use(helmet());
 
   await app.listen(process.env.PORT ?? 3000);
 }
