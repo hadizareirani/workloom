@@ -11,6 +11,9 @@ async function bootstrap() {
   app.useGlobalInterceptors(new MainAppInterceptor());
   app.use(helmet());
 
+  // TODO: Enable CORS if needed
+  // app.enableCors();
+
   await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();
