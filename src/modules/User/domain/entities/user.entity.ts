@@ -34,7 +34,27 @@ export class User {
     this._updatedAt = updatedAt;
   }
 
-  static create() {
-    return new User();
+  static create(props: {
+    id: string;
+    userId: string;
+    username: string;
+    email: string;
+    fullName: string;
+    password: string;
+    isDeleted: boolean;
+    deletedAt: Date | null;
+  }) {
+    return new User(
+      props.id,
+      props.userId,
+      props.username,
+      props.email,
+      props.fullName,
+      props.password,
+      props.isDeleted ?? false,
+      props.deletedAt ?? null,
+      new Date(),
+      new Date(),
+    );
   }
 }
