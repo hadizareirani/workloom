@@ -1,4 +1,6 @@
 export class User {
+  // TODO: Add validation and business logic as needed
+  // TODO: Consider using value objects for email, username, etc. to encapsulate validation logic
   private _id: string;
   private _userId: string;
   private _username: string;
