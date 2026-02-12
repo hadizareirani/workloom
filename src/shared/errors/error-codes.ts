@@ -1,5 +1,6 @@
-export enum ErrorCode {
-  WEAK_PASSWORD = 'WEAK_PASSWORD',
-  USER_ALREADY_EXISTS = 'USER_ALREADY_EXISTS',
-  INTERNAL_ERROR = 'INTERNAL_ERROR',
-}
+export const ErrorCode = {
+  INVALID_GUID_FORMAT: 'INVALID_GUID_FORMAT',
+  INTERNAL_ERROR: 'INTERNAL_ERROR',
+} as const;
+
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];

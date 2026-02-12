@@ -1,2 +1,6 @@
-export * from './http';
+// shared
+
+export * from './domain';
 export * from './errors';
+export * from './http';
+export * from './infrastructure';

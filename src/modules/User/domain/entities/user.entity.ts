@@ -1,8 +1,10 @@
+import { GUID } from '@shared';
+
 export class User {
   // TODO: Add validation and business logic as needed
   // TODO: Consider using value objects for email, username, etc. to encapsulate validation logic
-  private _id: string;
-  private _userId: string;
+  private _id: number;
+  private _userId: GUID;
   private _username: string;
   private _email: string;
   private _fullName: string;
@@ -13,8 +15,8 @@ export class User {
   private _updatedAt: Date;
 
   private constructor(
-    id: string,
-    userId: string,
+    id: number,
+    userId: GUID,
     username: string,
     email: string,
     fullName: string,
@@ -37,8 +39,8 @@ export class User {
   }
 
   static create(props: {
-    id: string;
-    userId: string;
+    id: number;
+    userId: GUID;
     username: string;
     email: string;
     fullName: string;
