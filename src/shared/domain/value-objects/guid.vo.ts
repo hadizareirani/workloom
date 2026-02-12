@@ -1,5 +1,5 @@
 import { v4 as uuid4, validate as uuidValidate } from 'uuid';
-import { InvalidGcUIDError } from '../errors';
+import { InvalidGuidError } from '../errors';
 
 export class GUID {
   private readonly _value: string;
@@ -22,7 +22,7 @@ export class GUID {
 
   static fromString(value: string): GUID {
     if (!uuidValidate(value)) {
-      throw new InvalidGcUIDError();
+      throw new InvalidGuidError();
     }
     return new GUID(value);
   }

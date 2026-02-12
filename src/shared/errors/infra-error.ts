@@ -1,7 +1,5 @@
-import { ErrorCode } from './error-codes';
-
-export abstract class InfraError extends Error {
-  abstract readonly code: ErrorCode;
+export abstract class InfraError<TCode> extends Error {
+  abstract readonly code: TCode;
 
   protected constructor(message?: string) {
     super(message);

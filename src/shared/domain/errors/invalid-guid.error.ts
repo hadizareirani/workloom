@@ -1,6 +1,6 @@
 import { ErrorCode, ErrorMessages, DomainError } from '@shared';
 
-export class InvalidGcUIDError extends DomainError {
+export class InvalidGuidError extends DomainError<ErrorCode> {
   code: ErrorCode = ErrorCode.INVALID_GUID_FORMAT;
 
   constructor() {

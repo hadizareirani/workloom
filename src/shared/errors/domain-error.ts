@@ -1,7 +1,5 @@
-import { ErrorCode } from './error-codes';
-
-export abstract class DomainError extends Error {
-  abstract readonly code: ErrorCode;
+export abstract class DomainError<TCode> extends Error {
+  abstract readonly code: TCode;
 
   protected constructor(message?: string) {
     super(message);
