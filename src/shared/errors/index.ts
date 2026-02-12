@@ -1,3 +1,5 @@
+// shared/errors
+
 export * from './domain-error';
 export * from './infra-error';
 export * from './error-codes';

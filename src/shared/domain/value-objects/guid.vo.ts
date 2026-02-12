@@ -1,4 +1,5 @@
 import { v4 as uuid4, validate as uuidValidate } from 'uuid';
+import { InvalidGcUIDError } from '../errors';
 
 export class GUID {
   private readonly _value: string;
@@ -21,8 +22,7 @@ export class GUID {
 
   static fromString(value: string): GUID {
     if (!uuidValidate(value)) {
-      // Todo: Consider throwing a custom error type for better error handling
-      throw new Error('Invalid GUID format');
+      throw new InvalidGcUIDError();
     }
     return new GUID(value);
   }
