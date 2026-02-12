@@ -1,9 +1,9 @@
 import { ErrorCode } from './error-codes';
 
 export abstract class DomainError extends Error {
-  code: ErrorCode;
+  abstract readonly code: ErrorCode;
 
-  constructor(messages?: string) {
-    super(messages);
+  protected constructor(message?: string) {
+    super(message);
   }
 }
