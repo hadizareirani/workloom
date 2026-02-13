@@ -2,3 +2,4 @@
 
 export * from './invalid-username.error';
 export * from './invalid-email.error';
+export * from './invalid-fullname.error';
