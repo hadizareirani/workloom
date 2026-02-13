@@ -1,5 +1,5 @@
 import { GUID } from '@shared';
-import { Username } from '../value-object';
+import { Username, Email } from '../value-object';
 
 export class User {
   // TODO: Add validation and business logic as needed
@@ -7,7 +7,7 @@ export class User {
   private _id: number;
   private _userId: GUID;
   private _username: Username;
-  private _email: string;
+  private _email: Email;
   private _fullName: string;
   private _password: string;
   private _isDeleted: boolean;
@@ -19,7 +19,7 @@ export class User {
     id: number,
     userId: GUID,
     username: Username,
-    email: string,
+    email: Email,
     fullName: string,
     password: string,
     isDeleted: boolean,
@@ -43,7 +43,7 @@ export class User {
     id: number;
     userId: GUID;
     username: Username;
-    email: string;
+    email: Email;
     fullName: string;
     password: string;
     isDeleted: boolean;

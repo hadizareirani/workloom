@@ -1,3 +1,5 @@
+import { InvalidEmailError } from '../errors';
+
 export class Email {
   private readonly _value: string;
   private static readonly emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -8,7 +10,9 @@ export class Email {
 
   static create(value: string): Email {
     const isValid = this.emailRegex.test(value);
-    if (!isValid) throw new Error('Invalid email format');
+    if (!isValid) {
+      throw new InvalidEmailError();
+    }
     return new Email(value);
   }
 
