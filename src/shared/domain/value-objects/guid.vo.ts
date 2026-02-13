@@ -16,11 +16,11 @@ export class GUID {
     return this._value;
   }
 
-  equals(other: GUID): boolean {
+  compareTo(other: GUID): boolean {
     return this.value === other.value;
   }
 
-  static fromString(value: string): GUID {
+  static fromPersistence(value: string): GUID {
     if (!uuidValidate(value)) {
       throw new InvalidGuidError();
     }
