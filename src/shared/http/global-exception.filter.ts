@@ -17,19 +17,21 @@ export class GlobalExceptionFilter implements ExceptionFilter {
     const res = ctx.getResponse<Response>();
 
     if (exception instanceof DomainError) {
+      const code = exception.code as string;
       return res.status(400).json(
         ApiResponse.fail({
-          code: exception.code,
-          message: ErrorMessages[exception.code],
+          code,
+          message: ErrorMessages[code] as string,
         }),
       );
     }
 
     if (exception instanceof InfraError) {
+      const code = exception.code as string;
       return res.status(500).json(
         ApiResponse.fail({
-          code: exception.code,
-          message: ErrorMessages[exception.code],
+          code,
+          message: ErrorMessages[code] as string,
         }),
       );
     }
