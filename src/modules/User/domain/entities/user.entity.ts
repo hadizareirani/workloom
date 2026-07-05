@@ -47,8 +47,8 @@ export class User {
     email: Email;
     fullName: FullName;
     password: Password;
-    isDeleted: boolean;
-    deletedAt: Date | null;
+    isDeleted?: boolean;
+    deletedAt?: Date | null;
   }) {
     return new User(
       props.id,
@@ -63,4 +63,45 @@ export class User {
       new Date(),
     );
   }
+  get userId(): GUID {
+    return this._userId;
+  }
+
+  get userName(): Username{
+    return this._username;
+  }
+
+  get email(): Email {
+    return this._email;
+  }
+
+  get fullname(): FullName {
+    return this._fullName;
+  }
+
+  get password(): Password {
+    return this._password;
+  }
+
+  get isDeleted(): boolean {
+    return this._isDeleted;
+  }
+
+  get deletedAt(): Date| null {
+    return this._deletedAt;
+  }
+
+  get createdAt(): Date {
+    return this._createdAt;
+  }
+
+  get updatedAt(): Date {
+    return this._updatedAt;
+  }
+
+  private touch(): void {
+    this._updatedAt = new Date();
+  }
+
+  
 }
